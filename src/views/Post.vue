@@ -52,7 +52,7 @@ function roll() {
         required
       ></textarea>
       <button
-        @click="postStore.addPost({ ...data, roll: data.roll.value })"
+        @click.prevent="postStore.addPost({ ...data, roll: data.roll.value })"
         class="bg-slate-900 text-slate-300 self-center px-5 py-2 rounded hover:bg-slate-600 hover:text-slate-900 transition-all"
       >
         Submit
