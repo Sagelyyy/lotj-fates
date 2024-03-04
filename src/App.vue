@@ -1,12 +1,14 @@
 <script setup></script>
 
 <template>
-  <body class="bg-slate-200 h-dvh">
-    <nav>
-      <h1 class="text-3xl font-bold underline">Hello World</h1>
+  <div
+    class="font-montserrat border border-b-2 text-slate-800 border-slate-500 mb-2"
+  >
+    <h1 class="text-3xl font-bold underline">LoTJ Fates</h1>
+    <nav class="flex gap-5 justify-center">
       <router-link to="/">Home</router-link>
-      <router-link to="/about">About</router-link>
+      <router-link to="/post">New Post</router-link>
     </nav>
-    <router-view />
-  </body>
+  </div>
+  <router-view />
 </template>
