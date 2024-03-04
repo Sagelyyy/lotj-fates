@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { usePostStore } from "@/stores/store";
 import { onMounted } from "vue";
 

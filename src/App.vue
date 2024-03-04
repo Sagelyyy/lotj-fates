@@ -8,6 +8,7 @@
     <nav class="flex gap-5 justify-center">
       <router-link to="/">Home</router-link>
       <router-link to="/post">New Post</router-link>
+      <router-link to="/login">Login</router-link>
     </nav>
   </div>
   <router-view />

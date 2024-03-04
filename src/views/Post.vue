@@ -20,7 +20,7 @@ function roll() {
   <div
     class="flex flex-col lg:w-2/6 m-auto justify-center gap-3 bg-slate-400 p-5 font-montserrat rounded"
   >
-    <h3 class="text-3xl">New Post</h3>
+    <h3 class="text-3xl font-bold">New Post</h3>
     <button
       v-if="data.roll.value === 0"
       class="bg-slate-900 text-slate-300 self-center px-5 py-2 rounded hover:bg-slate-600 hover:text-slate-900 transition-all"

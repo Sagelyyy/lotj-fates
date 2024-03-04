@@ -23,7 +23,7 @@ export const usePostStore = defineStore("post", () => {
       if (error) {
         console.error("Error fetching posts:", error);
       } else {
-        // need to set up filtering for published of unpublished
+        // Need to set up filtering for published or unpublished
         setPosts(data);
         // console.log("Posts fetched successfully:", data);
       }
@@ -35,6 +35,7 @@ export const usePostStore = defineStore("post", () => {
   }
 
   async function addPost(post: IPost) {
+    // Need to setup checking for authenticated user
     if (!post.title || !post.content) return;
     const { error } = await supabase
       .from("posts")
