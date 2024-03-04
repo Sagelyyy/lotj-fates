@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { ref } from "vue";
 import { usePostStore } from "@/stores/store";
 const postStore = usePostStore();
@@ -31,7 +31,7 @@ function roll() {
     <p>You rolled a {{ data.roll.value }}</p>
     <form v-if="data.roll.value > 0" class="flex flex-col gap-3 transition-all">
       <select v-model="data.status" class="self-center p-2" required>
-        <option selected="selected">Unpublished</option>
+        <option selected="true">Unpublished</option>
         <option>Published</option>
       </select>
       <input
