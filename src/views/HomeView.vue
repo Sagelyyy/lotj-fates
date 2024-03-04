@@ -24,7 +24,7 @@ function getTime(date) {
   >
     <div v-for="post in postStore.postData">
       <div
-        class="p-4 grid grid-cols-3 w-3/4 lg:w-2/6 m-auto transition-all text-pretty text-slate-900 hover:cursor-pointer hover:shadow-xl hover:shadow-slate-950 bg-slate-400 rounded-md __card"
+        class="p-4 grid grid-cols-3 w-3/4 md:w-2/4 lg:w-2/6 m-auto transition-all text-pretty text-slate-900 hover:cursor-pointer hover:shadow-xl hover:shadow-slate-950 bg-slate-400 rounded-md __card"
       >
         <div
           class="flex flex-col align-center text-center font-bold border-r-2 border-slate-500 mr-2 __roll"
@@ -33,7 +33,9 @@ function getTime(date) {
             <span class="text-blue-800">{{ post.character }}</span>
             rolled a...
           </p>
-          <h1 class="font-bold text-5xl lg:text-8xl">{{ post.roll }}</h1>
+          <h1 class="font-bold text-5xl xl:text-8xl">
+            {{ post.roll }}
+          </h1>
         </div>
 
         <div class="col-span-2 flex flex-col gap-2 __title">

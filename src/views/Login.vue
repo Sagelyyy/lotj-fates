@@ -10,7 +10,7 @@ const userData = {
 <template>
   <div v-if="!userStore.user.email">
     <form
-      class="flex flex-col gap-3 bg-slate-400 p-5 lg:w-2/6 justify-center m-auto rounded font-montserrat"
+      class="flex flex-col gap-3 bg-slate-400 p-5 w-3/4 lg:w-2/6 justify-center m-auto rounded font-montserrat"
     >
       <h1 class="text-3xl font-bold">Login</h1>
       <input

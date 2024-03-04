@@ -18,7 +18,7 @@ function roll() {
 
 <template>
   <div
-    class="flex flex-col lg:w-2/6 m-auto justify-center gap-3 bg-slate-400 p-5 font-montserrat rounded"
+    class="flex flex-col w-3/4 lg:w-2/6 m-auto justify-center gap-3 bg-slate-400 p-5 font-montserrat rounded"
   >
     <h3 class="text-3xl font-bold">New Post</h3>
     <button
