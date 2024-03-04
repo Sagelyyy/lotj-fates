@@ -4,7 +4,7 @@ import { usePostStore } from "@/stores/store";
 const postStore = usePostStore();
 
 const data = {
-  character: "Kyra",
+  character: "Test",
   title: "",
   content: "",
   status: "",
