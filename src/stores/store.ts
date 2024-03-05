@@ -2,6 +2,8 @@ import { defineStore } from "pinia";
 import { supabase } from "@/supabase";
 import { ref } from "vue";
 import type { IPost } from "../types/post";
+import router from "@/router";
+import type { User } from "@supabase/supabase-js";
 
 export const usePostStore = defineStore("post", () => {
   const postData = ref([] as IPost[]);
@@ -45,13 +47,14 @@ export const usePostStore = defineStore("post", () => {
       console.error(post);
     } else {
       console.log("Post added successfully: ", post);
+      router.push({ path: "/" });
     }
   }
   return { postData, fetchPosts, addPost };
 });
 
 export const useUserStore = defineStore("user", () => {
-  const user = ref({} as any);
+  const user = ref<User | null>(null);
 
   async function loginWithEmail(email: string, password: string) {
     let { data, error } = await supabase.auth.signInWithPassword({
@@ -62,7 +65,8 @@ export const useUserStore = defineStore("user", () => {
       console.error("Error logging in:", error);
     } else {
       user.value = data.user;
-      console.log("User logged in:", data);
+      // console.log("User logged in:", data);
+      router.push({ path: "/" });
     }
   }
 
@@ -73,7 +77,8 @@ export const useUserStore = defineStore("user", () => {
       console.error("Error logging out:", error);
     } else {
       user.value = null;
-      console.log("User logged out");
+      // console.log("User logged out");
+      router.push({ path: "/" });
     }
   }
 

@@ -1,12 +1,13 @@
 <script setup lang="ts">
-import { usePostStore } from "@/stores/store";
+import { usePostStore, useUserStore } from "@/stores/store";
 import { onMounted } from "vue";
 
 const postStore = usePostStore();
+const userStore = useUserStore();
 
 onMounted(postStore.fetchPosts);
 
-function getTime(date) {
+function getTime(date: string) {
   return new Date(date).toLocaleDateString("en-US", {
     day: "numeric",
     month: "short",
@@ -41,7 +42,7 @@ function getTime(date) {
         <div class="col-span-2 flex flex-col gap-2 __title">
           <h3 class="font-montserrat text-3xl font-bold">{{ post.title }}</h3>
           <p class="font-hind text-sm font-light">
-            {{ getTime(post.created_at) }}
+            {{ getTime(post.created_at as string) }}
           </p>
           <p class="font-hind font-medium text-left">
             {{ post.content }}

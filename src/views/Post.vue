@@ -4,7 +4,7 @@ import { usePostStore } from "@/stores/store";
 const postStore = usePostStore();
 
 const data = {
-  character: "Test",
+  character: "",
   title: "",
   content: "",
   status: "",
@@ -21,6 +21,13 @@ function roll() {
     class="flex flex-col w-3/4 lg:w-2/6 m-auto justify-center gap-3 bg-slate-400 p-5 font-montserrat rounded"
   >
     <h3 class="text-3xl font-bold">New Post</h3>
+    <input
+      v-model="data.character"
+      type="text"
+      placeholder="Character Name"
+      class="self-center p-2"
+      required
+    />
     <button
       v-if="data.roll.value === 0"
       class="bg-slate-900 text-slate-300 self-center px-5 py-2 rounded hover:bg-slate-600 hover:text-slate-900 transition-all"
@@ -28,7 +35,7 @@ function roll() {
     >
       Roll
     </button>
-    <p>You rolled a {{ data.roll.value }}</p>
+    <p v-if="data.roll.value > 0">You rolled a {{ data.roll.value }}</p>
     <form v-if="data.roll.value > 0" class="flex flex-col gap-3 transition-all">
       <select v-model="data.status" class="self-center p-2" required>
         <option selected="true">Unpublished</option>

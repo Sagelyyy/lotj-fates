@@ -8,7 +8,7 @@ const userData = {
 </script>
 
 <template>
-  <div v-if="!userStore.user.email">
+  <div v-if="userStore.user === null">
     <form
       class="flex flex-col gap-3 bg-slate-400 p-5 w-3/4 lg:w-2/6 justify-center m-auto rounded font-montserrat"
     >
@@ -35,8 +35,17 @@ const userData = {
       </button>
     </form>
   </div>
-  <div v-else>
-    <h1>You are already logged in as {{ userStore.user.email }}</h1>
-    <button @click.prevent="userStore.logout()">Logout</button>
+  <div
+    class="flex flex-col gap-3 bg-slate-400 p-5 w-3/4 lg:w-2/6 justify-center m-auto rounded font-montserrat"
+    v-else
+  >
+    <h3>You are already logged in as</h3>
+    <p class="text-blue-800 font-bold">{{ userStore.user.email }}</p>
+    <button
+      class="bg-slate-900 text-slate-300 self-center px-5 py-2 rounded hover:bg-slate-600 hover:text-slate-900 transition-all"
+      @click.prevent="userStore.logout()"
+    >
+      Logout
+    </button>
   </div>
 </template>
