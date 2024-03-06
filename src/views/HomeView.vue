@@ -5,7 +5,10 @@ import { onMounted } from "vue";
 const postStore = usePostStore();
 const userStore = useUserStore();
 
-onMounted(postStore.fetchPosts);
+onMounted(() => {
+  postStore.fetchPosts();
+  postStore.subscribePosts();
+});
 
 function getTime(date: string) {
   return new Date(date).toLocaleDateString("en-US", {

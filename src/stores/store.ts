@@ -3,7 +3,7 @@ import { supabase } from "@/supabase";
 import { ref } from "vue";
 import type { IPost } from "../types/post";
 import router from "@/router";
-import type { User } from "@supabase/supabase-js";
+import { type User } from "@supabase/supabase-js";
 
 export const usePostStore = defineStore("post", () => {
   const postData = ref([] as IPost[]);
@@ -43,9 +43,8 @@ export const usePostStore = defineStore("post", () => {
       .insert({ ...post, roll: post.roll });
     if (error) {
       console.error("Error adding post:", error);
-      console.error(post);
     } else {
-      console.log("Post added successfully: ", post);
+      // console.log("Post added successfully: ", post);
       router.push({ path: "/" });
     }
   }
@@ -71,7 +70,46 @@ export const usePostStore = defineStore("post", () => {
     }
   }
 
-  return { postData, fetchPosts, addPost, deletePost, updatePost };
+  function subscribePosts() {
+    interface Post {
+      id: number;
+    }
+
+    supabase
+      .channel("public:posts")
+      .on(
+        "postgres_changes",
+        { event: "*", schema: "public", table: "posts" },
+        (payload) => {
+          const oldPost: Post = payload.old as Post;
+          const newPost: Post = payload.new as Post;
+          if (
+            Object.keys(oldPost).length === 0 &&
+            oldPost.constructor === Object
+          ) {
+            if (newPost) {
+              const updatedPosts = [newPost as IPost, ...postData.value];
+              setPosts(updatedPosts);
+            }
+          } else {
+            const updatedPosts = postData.value.filter(
+              (post) => post.id !== oldPost.id
+            );
+            setPosts(updatedPosts);
+          }
+        }
+      )
+      .subscribe();
+  }
+
+  return {
+    postData,
+    fetchPosts,
+    addPost,
+    deletePost,
+    updatePost,
+    subscribePosts,
+  };
 });
 
 export const useUserStore = defineStore("user", () => {

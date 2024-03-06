@@ -1,8 +1,6 @@
 <script setup>
 import { useUserStore } from "./stores/store";
 const userStore = useUserStore();
-
-console.log(useUserStore.user);
 </script>
 
 <template>
