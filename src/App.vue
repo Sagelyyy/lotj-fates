@@ -1,4 +1,9 @@
-<script setup></script>
+<script setup>
+import { useUserStore } from "./stores/store";
+const userStore = useUserStore();
+
+console.log(useUserStore.user);
+</script>
 
 <template>
   <div
@@ -7,7 +12,9 @@
     <h1 class="text-3xl font-bold underline">LoTJ Fates</h1>
     <nav class="flex gap-5 justify-center">
       <router-link to="/">Home</router-link>
-      <router-link to="/post">New Post</router-link>
+      <router-link v-show="userStore.user !== null" to="/post"
+        >New Post</router-link
+      >
       <router-link to="/login">Login</router-link>
     </nav>
   </div>

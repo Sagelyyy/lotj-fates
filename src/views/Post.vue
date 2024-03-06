@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { usePostStore } from "@/stores/store";
+import { useUserStore } from "@/stores/store";
+
+const userStore = useUserStore();
 const postStore = usePostStore();
 
 const data = {
@@ -18,6 +21,7 @@ function roll() {
 
 <template>
   <div
+    v-if="userStore.user !== null"
     class="flex flex-col w-3/4 lg:w-2/6 m-auto justify-center gap-3 bg-slate-400 p-5 font-montserrat rounded"
   >
     <h3 class="text-3xl font-bold">New Post</h3>
@@ -65,5 +69,11 @@ function roll() {
         Submit
       </button>
     </form>
+  </div>
+  <div
+    v-else
+    class="flex flex-col w-3/4 lg:w-2/6 m-auto justify-center gap-3 bg-slate-400 p-5 font-montserrat rounded"
+  >
+    <h3 class="text-3xl font-bold">Please Login to Post</h3>
   </div>
 </template>

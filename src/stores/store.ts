@@ -20,12 +20,12 @@ export const usePostStore = defineStore("post", () => {
       const { data, error } = await supabase
         .from("posts")
         .select("*")
+        .eq("status", "Published")
         .order("created_at", { ascending: false });
 
       if (error) {
         console.error("Error fetching posts:", error);
       } else {
-        // Need to set up filtering for published or unpublished
         setPosts(data);
         // console.log("Posts fetched successfully:", data);
       }
@@ -37,7 +37,6 @@ export const usePostStore = defineStore("post", () => {
   }
 
   async function addPost(post: IPost) {
-    // Need to setup checking for authenticated user
     if (!post.title || !post.content) return;
     const { error } = await supabase
       .from("posts")
@@ -50,7 +49,29 @@ export const usePostStore = defineStore("post", () => {
       router.push({ path: "/" });
     }
   }
-  return { postData, fetchPosts, addPost };
+
+  async function deletePost(id: number) {
+    const { error } = await supabase.from("posts").delete().eq("id", id);
+    if (error) {
+      console.error("Error deleting post:", error);
+    } else {
+      console.log("Post deleted successfully");
+    }
+  }
+
+  async function updatePost(id: number, post: IPost) {
+    const { error } = await supabase
+      .from("posts")
+      .update({ ...post, roll: post.roll })
+      .eq("id", id);
+    if (error) {
+      console.error("Error updating post:", error);
+    } else {
+      console.log("Post updated successfully");
+    }
+  }
+
+  return { postData, fetchPosts, addPost, deletePost, updatePost };
 });
 
 export const useUserStore = defineStore("user", () => {
