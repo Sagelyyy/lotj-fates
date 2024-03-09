@@ -83,10 +83,7 @@ export const usePostStore = defineStore("post", () => {
         (payload) => {
           const oldPost: Post = payload.old as Post;
           const newPost: Post = payload.new as Post;
-          if (
-            Object.keys(oldPost).length === 0 &&
-            oldPost.constructor === Object
-          ) {
+          if (Object.keys(oldPost).length === 0) {
             if (newPost) {
               const updatedPosts = [newPost as IPost, ...postData.value];
               setPosts(updatedPosts);
