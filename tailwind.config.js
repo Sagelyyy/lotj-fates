@@ -6,6 +6,7 @@ module.exports = {
       hind: ["Hind Guntur", "sans-serif"],
       mate: ["Mate", "serif"],
       montserrat: ["Montserrat", "sans-serif"],
+      inconsolata: ["Inconsolata", "monospace"],
     },
     extend: {},
   },

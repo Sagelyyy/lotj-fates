@@ -28,7 +28,7 @@ function getTime(date: string) {
   >
     <div
       v-for="post in postStore.postData"
-      class="mt-2 bg-black w-3/4 md:w-1/2 m-auto rounded-3xl text-white border-4 border-yellow-500 hover:cursor-pointer relative"
+      class="mt-2 bg-black w-3/4 md:w-1/2 m-auto rounded-3xl text-white border-4 border-yellow-500 relative"
     >
       <div
         class="absolute left-2 top-2 border border-yellow-500 p-1 flex gap-1 rounded-lg __admin-panel"
@@ -74,7 +74,9 @@ function getTime(date: string) {
           {{ post.content }}
         </p>
         <p class="font-hind text-sm font-light self-end text-yellow-100">
-          Rolled by {{ post.character }} on
+          Rolled by
+          <span class="capitalize text-yellow-400">{{ post.character }}</span>
+          on
           {{ getTime(post.created_at as string) }}
         </p>
       </div>

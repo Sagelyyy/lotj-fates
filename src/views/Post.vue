@@ -29,7 +29,7 @@ function roll() {
       v-model="data.character"
       type="text"
       placeholder="Character Name"
-      class="self-center p-2"
+      class="self-center p-2 text-black rounded-lg border-2 focus:border-white focus:outline-none focus:ring-0"
       required
     />
     <button
@@ -40,10 +40,13 @@ function roll() {
       Roll
     </button>
     <p v-if="data.roll.value > 0">You rolled a {{ data.roll.value }}</p>
-    <form v-if="data.roll.value > 0" class="flex flex-col gap-3 transition-all">
+    <form
+      v-if="data.roll.value > 0"
+      class="flex flex-col gap-3 transition-all text-black"
+    >
       <select
         v-model="data.status"
-        class="self-center p-2 bg-white text-gray-400"
+        class="self-center p-2 bg-white text-gray-400 rounded-lg border-2 focus:border-white focus:outline-none focus:ring-0"
         required
       >
         <option selected="true">Unpublished</option>
@@ -53,12 +56,12 @@ function roll() {
         v-model="data.title"
         type="text"
         placeholder="Title"
-        class="self-center w-3/4 p-2"
+        class="self-center w-3/4 p-2 rounded-lg border-2 focus:border-white focus:outline-none focus:ring-0"
         required
       />
       <textarea
         v-model="data.content"
-        class="self-center w-3/4 p-2"
+        class="self-center w-3/4 p-2 rounded-lg border-2 focus:border-white focus:outline-none focus:ring-0"
         name=""
         id=""
         cols="30"

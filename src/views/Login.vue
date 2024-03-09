@@ -17,13 +17,13 @@ const userData = {
         v-model="userData.email"
         type="text"
         placeholder="Username"
-        class="self-center p-2 bg-black"
+        class="self-center p-2 bg-black rounded-lg border-2 focus:border-white focus:outline-none focus:ring-0"
       />
       <input
         v-model="userData.password"
         type="password"
         placeholder="Password"
-        class="self-center p-2 bg-black"
+        class="self-center p-2 bg-black rounded-lg border-2 focus:border-white focus:outline-none focus:ring-0"
       />
       <button
         class="bg-yellow-300 text-yellow-900 self-center px-5 py-2 rounded hover:bg-yellow-600 hover:text-yellow-300 transition-all"
