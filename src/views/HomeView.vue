@@ -24,11 +24,11 @@ function getTime(date: string) {
 <template>
   <div
     v-if="postStore.postData"
-    class="grid grid-cols-1 gap-5 justify-center w-full"
+    class="grid grid-cols-1 gap-5 justify-center w-full mt-2 mb-2"
   >
     <div
       v-for="post in postStore.postData"
-      class="mt-2 bg-black w-3/4 md:w-1/2 m-auto rounded-3xl text-white border-4 border-yellow-500 relative"
+      class="bg-black w-3/4 sm:w-3/4 md:w-2/4 lg:w-2/6 m-auto rounded-3xl text-white border-t-4 border-r-4 border-b-2 border-l-2 border-t-yellow-500 border-r-yellow-500 border-b-yellow-700 border-l-yellow-700 hover:border-t-yellow-700 hover:border-r-yellow-700 hover:border-b-yellow-500 hover:border-l-yellow-500 transition-all duration-200 ease-linear relative"
     >
       <div
         class="flex gap-4 justify-center bg-yellow-700 rounded-b-full w-3/4 m-auto border-b-8 border-yellow-400 translate-x-1 __roll_container"
