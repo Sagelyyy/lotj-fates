@@ -24,32 +24,26 @@ function getTime(date: string) {
 <template>
   <div
     v-if="postStore.postData"
-    class="grid grid-cols-12 max-w-7xl mx-auto gap-5 justify-center w-full mt-4 mb-2"
+    class="grid grid-cols-1 max-w-xl mx-auto gap-5 justify-center w-full mt-4 mb-2"
   >
-    <div class="col-span-2">
-      <!-- <p>
-        Welcome,
-        <span class="capitalize text-yellow-600">{{
-          userStore.user?.email?.split("@")[0]
-        }}</span>
-      </p> -->
-    </div>
     <div
       v-for="post in postStore.postData"
-      class="bg-black col-span-8 w-full md:w-3/4 lg:w-5/6 m-auto rounded-3xl text-white border-t-4 border-r-4 border-b-2 border-l-2 border-t-yellow-500 border-r-yellow-500 border-b-yellow-700 border-l-yellow-700 hover:border-t-yellow-700 hover:border-r-yellow-700 hover:border-b-yellow-500 hover:border-l-yellow-500 hover:-translate-y-2 transition-all duration-200 ease-linear relative"
+      class="bg-black col-span-8 w-3/4 md:w-5/6 sm:w-3/4 m-auto rounded-3xl text-white border-t-4 border-r-4 border-b-2 border-l-2 border-t-yellow-500 border-r-yellow-500 border-b-yellow-700 border-l-yellow-700 hover:border-t-yellow-700 hover:border-r-yellow-700 hover:border-b-yellow-500 hover:border-l-yellow-500 hover:-translate-y-2 transition-all duration-200 ease-linear relative"
     >
       <div
-        class="flex gap-4 justify-center m-auto w-1/3 bg-yellow-700 rounded-b-full border-b-8 border-yellow-400 __roll_container"
+        class="flex gap-4 justify-center m-auto w-2/3 md:w-2/5 bg-yellow-700 rounded-b-full border-b-8 border-yellow-400 __roll_container"
       >
-        <p class="font-bold text-5xl text-white">
+        <p class="font-bold text-5xl max-w-12 text-white">
           {{ post.roll }}
         </p>
         <svg
           fill="#ffffff"
           viewBox="-16 0 512 512"
+          width="3rem"
+          height="3rem"
           xmlns="http://www.w3.org/2000/svg"
-          height="50px"
-          class="p-1 hover:rotate-180 transition-all duration-200 ease-linear"
+          class="p-1 hover:rotate-180 transition-all duration-200 ease-linear shrink-0"
+          preserveAspectRatio="xMidYMin slice"
         >
           <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
           <g
@@ -101,6 +95,5 @@ function getTime(date: string) {
         </div>
       </div>
     </div>
-    <div class="col-span-2"></div>
   </div>
 </template>
