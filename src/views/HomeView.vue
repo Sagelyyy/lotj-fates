@@ -26,10 +26,7 @@ function getTime(date: string) {
     v-if="postStore.postData"
     class="grid grid-cols-12 max-w-7xl mx-auto gap-5 justify-center w-full mt-4 mb-2"
   >
-    <div
-      :class="userStore.user !== null ? 'visible' : 'invisible'"
-      class="text-white col-span-2 border-t-4 border-r-4 border-b-2 border-l-2 rounded-xl border-t-yellow-500 border-r-yellow-500 border-b-yellow-700 border-l-yellow-700 hover:border-t-yellow-700 hover:border-r-yellow-700 hover:border-b-yellow-500 hover:border-l-yellow-500"
-    >
+    <div class="col-span-2">
       <!-- <p>
         Welcome,
         <span class="capitalize text-yellow-600">{{
@@ -42,7 +39,7 @@ function getTime(date: string) {
       class="bg-black col-span-8 w-full md:w-3/4 lg:w-5/6 m-auto rounded-3xl text-white border-t-4 border-r-4 border-b-2 border-l-2 border-t-yellow-500 border-r-yellow-500 border-b-yellow-700 border-l-yellow-700 hover:border-t-yellow-700 hover:border-r-yellow-700 hover:border-b-yellow-500 hover:border-l-yellow-500 hover:-translate-y-2 transition-all duration-200 ease-linear relative"
     >
       <div
-        class="flex gap-4 justify-center bg-yellow-700 rounded-b-full w-3/4 m-auto border-b-8 border-yellow-400 translate-x-1 __roll_container"
+        class="flex gap-4 justify-center m-auto w-1/3 bg-yellow-700 rounded-b-full border-b-8 border-yellow-400 __roll_container"
       >
         <p class="font-bold text-5xl text-white">
           {{ post.roll }}
