@@ -5,7 +5,7 @@ const userStore = useUserStore();
 
 <template>
   <div
-    class="absolute top-0 z-[-2] h-screen w-screen bg-[#000000] bg-[radial-gradient(#ffffff33_1px,#000_1px)] bg-[size:20px_20px] opacity-10"
+    class="fixed top-0 z-[-2] h-screen w-screen bg-[#000000] bg-[radial-gradient(#ffffff33_1px,#000_1px)] bg-[size:20px_20px] opacity-10"
   ></div>
   <div class="font-montserrat p-2 border-b-2 border-yellow-500 text-white">
     <h1 class="text-3xl font-bold underline text-yellow-500">LoTJ Fates</h1>
